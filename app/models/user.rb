@@ -10,8 +10,40 @@ class User
 
   validates :user_name, :email,  presence: true, uniqueness: true
 
-  has_many :matches
   has_one :profile
+  has_many :likes
+  has_many :matches
+
+  def send_like_to user_b_id
+    result = true
+    like = Like.new
+    like.user_id = self.id
+    like.to_user_id = user_b_id
+    if !like.save
+      result = like.errors.messages
+    end
+    result
+  end
+
+  def search_compatible_users
+    results = []
+    profile = self.profile
+    age_limits = profile.age_range_delta
+
+    users = User.ne(id: self.id)
+    if profile.orientation == "both"
+      users = users.between(age: age_limits[:min]..age_limits[:max])
+    else
+      users = users.where(gender: profile.orientation).between(age: age_limits[:min]..age_limits[:max])
+    end
+
+    users.each do |user|
+      if user.profile.orientation == "both" || user.profile.orientation == self.gender
+        results << user unless results.include?(user)
+      end
+    end
+    results
+  end
 
   def self.search query
     if !query.blank?

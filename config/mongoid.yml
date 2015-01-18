@@ -29,6 +29,7 @@ development:
         # retry_interval: 0.25
   # Configure Mongoid specific options. (optional)
   options:
+    raise_not_found_error: false
     # Includes the root model name in json serialization. (default: false)
     # include_root_in_json: false
 
