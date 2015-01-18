@@ -2,6 +2,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  GENDERS = %W(male female both)
+
   field :user_name,       type: String
   field :email,           type: String
   field :gender,          type: String
@@ -9,6 +11,9 @@ class User
   field :rank,            type: Float, default: 0.00
 
   validates :user_name, :email,  presence: true, uniqueness: true
+  validates :gender, :age, presence: true
+  validates :gender, inclusion: { in: GENDERS,
+    message: "%{value} is not a valid gender" }
 
   has_one :profile
   has_many :likes
@@ -19,9 +24,8 @@ class User
     like = Like.new
     like.user_id = self.id
     like.to_user_id = user_b_id
-    if !like.save
-      result = like.errors.messages
-    end
+    like.save
+    result = like
     result
   end
 
