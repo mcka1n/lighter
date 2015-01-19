@@ -53,6 +53,20 @@ http://localhost:3000/v1/
 
 ### Users
 
+  - [GET /users](#get-users)
+  - [GET /users/:id](#get-id)
+  - [GET /users/:id/compatible_users](#get-id-compatible_users)
+  - [POST /users](#post-users)
+  - [POST /sign_in](#post-sign_in)
+
+
 ### Likes
 
+  - [GET /users/:user_id/likes](#get-users-user-id-likes)
+  - [GET /users/:user_id/likes/:id](#get-users-user_id-likes-id)
+  - [POST /users/:user_id/likes](#post-users-user_id-likes)
+
 ### Matches
+
+  - [GET /users/:user_id/matches](#get-users-user-id-matches)
+  - [GET /users/:user_id/matches/:id](#get-users-user_id-matches-id)
