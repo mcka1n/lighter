@@ -1,1 +1,28 @@
 <h1>Sign In</h1>
+
+<!-- sign in form !-->
+<div id="sign_in" data-reveal ng-controller='UserSignUpCtrl'>
+
+  <!-- Login errors !-->
+  <form>
+    <div ng-show="login_error.message" class="error">
+      <p><font color="red">{{login_error.message}}</font></p>
+    </div>
+
+    <label>User Name</label>
+    <input type="text" ng-model="login_user.user_name" required />
+    <br>
+    <button class="primary_btn center_btn" ng-click="login()">Sign In</button>
+
+  </form>
+
+  <div class="row">
+    <div class="large-4  medium-centered columns">
+      <span>
+        Create an account
+        <a href="/#/sign_up"><font color="#8d79f2">Sign Up</font></a>
+      </span>
+    </div>
+  </div>
+
+</div>

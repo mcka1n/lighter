@@ -13,6 +13,7 @@ Lighter::Application.routes.draw do
 
   get "/404" => "v1/errors#not_found"
   get "/500" => "v1/errors#exception"
+  post 'v1/sign_in', to: 'v1/users#sign_in', as: :sign_in
 
   root 'application#index'
   get '*path' => 'application#index'

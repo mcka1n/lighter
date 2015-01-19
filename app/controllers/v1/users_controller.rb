@@ -33,6 +33,14 @@ module V1
       render json: @current_user.search_compatible_users
     end
 
+    def sign_in
+      result = User.where(user_name: params[:user_name]).first
+      if result.nil?
+        result = {error: "invalid user"}
+      end
+      render json: result
+    end
+
     private
 
     def find_user

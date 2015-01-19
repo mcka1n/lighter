@@ -8,6 +8,14 @@ angular.module('AngularRails')
 
     var base_url = 'http://localhost:3000/v1/';
 
+    $scope.login = function() {
+      $scope.submit({method: 'POST',
+                     url: base_url + 'sign_in',
+                     data: {user_name: $scope.login_user.user_name},
+                            success_message: "Welcome to Lighter!",
+                            error_entity: $scope.login_error});
+      };
+
     $scope.register = function() {
       $scope.submit({method: 'POST',
                      url: base_url + 'users',
@@ -35,13 +43,12 @@ angular.module('AngularRails')
           if (data.error) {
             parameters.error_entity.message = data.error;
           }else{
-            console.log("ok; data inspect: ", data);
             parameters.error_entity.message = parameters.success_message;
-            $rootScope.current_user = data.user_name;
+            $rootScope.current_user = data._id.$oid;
             $scope.reset_users();
             filterTextTimeout = $timeout(function() {
               $location.path('/browse');
-            }, 250); // delay 250 ms
+            }, 900); // delay ms
           }
 
         })
@@ -74,13 +81,7 @@ angular.module('AngularRails')
     //
 
   }])
-  .controller('UserSignInCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', '$timeout', function($rootScope, $scope, $routeParams, $http, $location, $timeout) {
-    console.log("@sign ip");
-  }])
   .controller('UserCompatibleListCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', '$timeout', 'CompatibleUsers', function($rootScope, $scope, $routeParams, $http, $location, $timeout, CompatibleUsers) {
-    $scope.current_user = $routeParams.username
-    console.log("@user list: ", $routeParams.username);
-
-    $scope.compatible_users = CompatibleUsers.query({id: '54bc1cb5456477080c090000'});
-    console.log("llega1: ", $scope.compatible_users);
+    $scope.current_user = $rootScope.current_user;
+    $scope.compatible_users = CompatibleUsers.query({id: $scope.current_user});
   }]);
