@@ -84,4 +84,9 @@ angular.module('AngularRails')
   .controller('UserCompatibleListCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', '$timeout', 'CompatibleUsers', function($rootScope, $scope, $routeParams, $http, $location, $timeout, CompatibleUsers) {
     $scope.current_user = $rootScope.current_user;
     $scope.compatible_users = CompatibleUsers.query({id: $scope.current_user});
+
+    $scope.like = function(parameters) {
+      // Send like from here
+    };
+
   }]);

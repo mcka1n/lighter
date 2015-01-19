@@ -1,7 +1,12 @@
 <h1>Compatible Users</h1>
 
-<ul>
-  <li ng-repeat="user in compatible_users">
-    {{user}}
-  </li>
-</ul>
+<div ng-controller='UserCompatibleListCtrl'>
+  <ul>
+    <li ng-repeat="user in compatible_users">
+      {{user.user_name}} | {{user.gender}} | {{user.age}}
+      <span class="group-btn">
+        <a href="" class="btn btn-warning btn-md" ng-click="like()">like</a>
+      </span>
+    </li>
+  </ul>
+</div>
