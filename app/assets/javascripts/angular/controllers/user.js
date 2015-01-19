@@ -74,10 +74,13 @@ angular.module('AngularRails')
     //
 
   }])
-  .controller('UserSignInCtrl', function ($scope) {
+  .controller('UserSignInCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', '$timeout', function($rootScope, $scope, $routeParams, $http, $location, $timeout) {
     console.log("@sign ip");
-  })
-  .controller('UserCompatibleListCtrl', function ($scope) {
-    console.log("@user list");
-    
-  });
+  }])
+  .controller('UserCompatibleListCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', '$timeout', 'CompatibleUsers', function($rootScope, $scope, $routeParams, $http, $location, $timeout, CompatibleUsers) {
+    $scope.current_user = $routeParams.username
+    console.log("@user list: ", $routeParams.username);
+
+    $scope.compatible_users = CompatibleUsers.query({id: '54bc1cb5456477080c090000'});
+    console.log("llega1: ", $scope.compatible_users);
+  }]);

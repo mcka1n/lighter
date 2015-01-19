@@ -1,7 +1,8 @@
 angular
   .module('AngularRails', [
     'ngRoute',
-    'templates'
+    'templates',
+    'AllServices'
   ]).config(function ($routeProvider, $locationProvider) {
       $routeProvider
       .when('/', {
