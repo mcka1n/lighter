@@ -19,12 +19,12 @@ module V1
       if user.errors.messages.empty?
         profile = find_or_create_profile user.id, params
         if !profile.errors.messages.empty?
-          result = profile.errors.messages
+          result = {error: profile.errors.messages}
         else
           result = user
         end
       else
-        result = user.errors.messages
+        result = {error: user.errors.messages}
       end
       render json: result
     end

@@ -1,0 +1,36 @@
+<h1>Sign Up</h1>
+
+<!-- sign up form !-->
+<div id="registration" data-reveal ng-controller='UserSignUpCtrl'>
+  <h1>Create your account</h1>
+
+  <!-- Login errors !-->
+  <form>
+    <div ng-show="register_error.message" class="error">
+      <p><font color="red">{{register_error.message}}</font></p>
+    </div>
+
+    <label>User Name</label>
+    <input type="text" ng-model="register_user.user_name" required />
+    <br>
+    <label>Email</label>
+    <input type="text" ng-model="register_user.email" required />
+    <br>
+    <label>Orientation</label>
+    <input type="text" ng-model="register_user.orientation" required />
+    <br>
+    <label>Age</label>
+    <input type="text" ng-model="register_user.age" required />
+    <br>
+    <label>Gender</label>
+    <input type="text" ng-model="register_user.gender" required />
+    <br>
+    <label>Age Range</label>
+    <input type="text" ng-model="register_user.age_range" required />
+    <br>
+
+    <button class="primary_btn center_btn" ng-click="register()">Sign Up</button>
+
+</form>
+
+</div>

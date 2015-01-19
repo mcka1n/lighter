@@ -11,4 +11,10 @@ Lighter::Application.routes.draw do
 
   end
 
+  get "/404" => "v1/errors#not_found"
+  get "/500" => "v1/errors#exception"
+
+  root 'application#index'
+  get '*path' => 'application#index'
+
 end

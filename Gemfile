@@ -26,6 +26,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'mongoid', '~> 4.0.0'
+gem 'bower-rails'
+gem 'angular-rails-templates'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
