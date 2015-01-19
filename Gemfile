@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'mongoid', '~> 4.0.0'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'bootstrap-sass', '~> 2.3.1.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
