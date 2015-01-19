@@ -12,7 +12,7 @@ single interface for many user-likes-matches modalities.
 
 ## Getting things done locally
 
-- Download and install NodeJS from [http://blog.teamtreehouse.com/install-node-js-npm-mac](How to install nodejs on mac OS)
+- Download and install NodeJS from [http://blog.teamtreehouse.com/install-node-js-npm-mac](http://blog.teamtreehouse.com/install-node-js-npm-mac)
 - Install Bower using the following command
 
 ```shell
