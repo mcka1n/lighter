@@ -62,14 +62,14 @@ http://localhost:3000/v1/
 
 ### Likes
 
-  - [GET /users/:user_id/likes](#get-users-user-id-likes)
-  - [GET /users/:user_id/likes/:id](#get-users-user_id-likes-id)
-  - [POST /users/:user_id/likes](#post-users-user_id-likes)
+  - [GET /users/:user_id/likes](#get-usersuser_idlikes)
+  - [GET /users/:user_id/likes/:id](#get-usersuser_idlikesid)
+  - [POST /users/:user_id/likes](#post-usersuser_idlikes)
 
 ### Matches
 
-  - [GET /users/:user_id/matches](#get-users-user-id-matches)
-  - [GET /users/:user_id/matches/:id](#get-users-user_id-matches-id)
+  - [GET /users/:user_id/matches](#get-usersuser_idmatches)
+  - [GET /users/:user_id/matches/:id](#get-usersuser_idmatchesid)
 
 
 ### GET /users
@@ -237,4 +237,4 @@ List all matches for :user_id
 
 ### GET /users/:user_id/matches/:id
 
-Shows a specific match 
+Shows a specific match
