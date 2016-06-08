@@ -8,7 +8,7 @@ class Like
   belongs_to :user
 
   validate :viewer_does_not_already_like_user
-
+  
   before_create :check_matches
 
   def already_likes?
@@ -28,5 +28,4 @@ class Like
   def check_matches
     Match.create(user_id: user_id, friend_id: to_user_id) if is_it_a_match?
   end
-
 end

@@ -1,6 +1,5 @@
 module V1
   class UsersController < BaseController
-
     before_action :find_user, :only => [:show, :compatible_users]
 
     def index
@@ -44,26 +43,24 @@ module V1
     private
 
     def find_user
-      @current_user = User.where(id: params[:id]).first
+      @current_user = User.find(params[:id])
     end
 
     def find_or_create_user params
       User.find_or_create_by(
-                             user_name: params[:user_name],
-                             email: params[:email],
-                             gender: params[:gender],
-                             age: params[:age]
-                            )
+       user_name: params[:user_name],
+       email: params[:email],
+       gender: params[:gender],
+       age: params[:age]
+      )
     end
 
     def find_or_create_profile user_id, params
-      profile = Profile.find_or_create_by(
-                                          user_id: user_id,
-                                          orientation: params[:orientation],
-                                          age_range: params[:age_range]
-                                          )
-
+      Profile.find_or_create_by(
+        user_id: user_id,
+        orientation: params[:orientation],
+        age_range: params[:age_range]
+      )
     end
-
   end
 end

@@ -1,6 +1,5 @@
 module V1
   class MatchesController < BaseController
-
     before_action :find_user
     before_action :find_match, :only => [:show]
 
@@ -16,12 +15,11 @@ module V1
     private
 
     def find_user
-      @user = User.where(id: params[:user_id]).first
+      @user = User.find(params[:user_id])
     end
 
     def find_match
-      @match = Match.where(id: params[:id]).first
+      @match = Match.find(params[:id])
     end
-
   end
 end

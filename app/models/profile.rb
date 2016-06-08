@@ -37,5 +37,4 @@ class Profile
     end
     result
   end
-
 end

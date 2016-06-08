@@ -56,5 +56,4 @@ class User
       User.all
     end
   end
-
 end

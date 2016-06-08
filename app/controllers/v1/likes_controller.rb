@@ -1,6 +1,5 @@
 module V1
   class LikesController < BaseController
-
     before_action :find_user
     before_action :find_like, :only => [:show]
 
@@ -27,12 +26,11 @@ module V1
     private
 
     def find_user
-      @user = User.where(id: params[:user_id]).first
+      @user = User.find(params[:user_id])
     end
 
     def find_like
-      @like = Like.where(id: params[:id]).first
+      @like = Like.find(params[:id])
     end
-
   end
 end
